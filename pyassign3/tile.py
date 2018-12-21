@@ -196,7 +196,7 @@ def draw_brick(all):
                  'please input a number to select which method to display')
             method = all[int(num) - 1]
             break
-        except Index\Error:
+        except IndexError:
             print('Sorry, you do not have this method, please try another one')
 
     for brick in method:
