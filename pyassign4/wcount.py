@@ -14,6 +14,7 @@ from urllib import error
 def wcount(lines, topn = 10):
     '''this module is used to count words in a list
     lines is a list contains all line in the web
+    topn is the words' number you want to get
     '''
     
     str_letter = 'abcdefghijklmnopqrstuvwxyz'
@@ -43,10 +44,11 @@ def wcount(lines, topn = 10):
         list_display = list_sorted[:topn]
         for i in list_display:
             print(i[0].ljust(20, ' '), i[1])
-        return True
     else:
-        print('sorry topn is out of index')
-        return False
+        for i in list_sorted:
+            print(i[0].ljust(20, ' '), i[1])
+        print('your topn is out of index, so I give you all words')
+        
 
 def main():
     '''main module
@@ -93,6 +95,6 @@ if __name__ == '__main__':
         print('  topn: how many (words count) to output. If not given, will output top 10 words')
         sys.exit(1)
     elif len(sys.argv) > 3:
-        print('invalid input')
+        print('invalid input, try again')
     else:
         main()
